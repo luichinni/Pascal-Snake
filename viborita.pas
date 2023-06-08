@@ -70,6 +70,46 @@ begin
 	write(s);
 end;
 
+procedure writexy2(x,y:integer;s:string);
+var
+	st:string;
+	cAct:char;
+	i:integer = 1;
+begin
+	while (i<=Length(s)) do begin
+		cAct:= s[i];
+		SetLength(st,0);
+		case cAct of
+			sim_titulo: begin
+				TextBackground(color_titulo);
+				TextColor(color_titulo);
+			end;
+			' ': begin
+				TextBackground(color_suelo);
+				TextColor(color_letras);
+			end;
+			borde_horiz: begin
+				TextBackground(color_borde); // comentar esta linea para ver el simbolo
+                TextColor(color_borde)
+			end;
+			sim_comida: begin
+				TextBackground(color_comida); // comentar esta linea para ver el simbolo
+                TextColor(color_comida)
+			end;
+		end;
+		while(i<=Length(s))AND(s[i]=cAct)do begin
+			st:=st+s[i];
+			i:=i+1;
+		end;
+		gotoxy(x,y);
+		write(st);
+		//readKey;
+		x:=x+Length(st);
+	end;
+	TextBackground(color_suelo);
+	TextColor(color_letras);
+end;
+
 procedure writexy(x,y:integer;s:string);
 var i:integer;
 begin
@@ -112,334 +152,334 @@ begin
 	for i:=0 to Length(s) do begin
 		case s[i] of
 			'A': begin 
-				writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@ @@@');
+				writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@ @@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'B': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@    @@');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@    @@');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 
 			end;
 			'C': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'D': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@ '); 
-			   	writexy(WhereX-7,WhereY+1,'@    @@');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@    @@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@ ');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@ '); 
+			   	writexy2(WhereX-7,WhereY+1,'@    @@');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@    @@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@ ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'E': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@    @ ');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@    @ ');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'F': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@    @@');
-				writexy(WhereX-7,WhereY+1,'@  @@@ ');
-				writexy(WhereX-7,WhereY+1,'@  @@@ ');
-				writexy(WhereX-7,WhereY+1,'@@@@@  ');
-				writexy(WhereX-7,WhereY+1,'@@@@@  ');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@    @@');
+				writexy2(WhereX-7,WhereY+1,'@  @@@ ');
+				writexy2(WhereX-7,WhereY+1,'@  @@@ ');
+				writexy2(WhereX-7,WhereY+1,'@@@@@  ');
+				writexy2(WhereX-7,WhereY+1,'@@@@@  ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'G': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'H': begin
-				writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@ @@@');
+				writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@ @@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'I': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@'); 
-			   	writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@@@@');
-				writexy(WhereX-4,WhereY+1,'@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@'); 
+			   	writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@@@@');
+				writexy2(WhereX-4,WhereY+1,'@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'J': begin
 				if(WhereX<>x) or (s[i-1]=' ')then begin
-					writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-					writexy(WhereX-7,WhereY+1,'@@@@  @');
-					writexy(WhereX-7,WhereY+1,'@@@@  @');
-					writexy(WhereX-7,WhereY+1,'@@@@  @');
-					writexy(WhereX-7,WhereY+1,'@  @  @');
-					writexy(WhereX-7,WhereY+1,'@     @');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@')
+					writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+					writexy2(WhereX-7,WhereY+1,'@@@@  @');
+					writexy2(WhereX-7,WhereY+1,'@@@@  @');
+					writexy2(WhereX-7,WhereY+1,'@@@@  @');
+					writexy2(WhereX-7,WhereY+1,'@  @  @');
+					writexy2(WhereX-7,WhereY+1,'@     @');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@')
 				end else begin
-				  	writexy(WhereX-1,WhereY,  '   @@@@'); 
-					writexy(WhereX-7,WhereY+1,'   @  @');
-					writexy(WhereX-7,WhereY+1,'   @  @');
-					writexy(WhereX-7,WhereY+1,'@@@@  @');
-					writexy(WhereX-7,WhereY+1,'@  @  @');
-					writexy(WhereX-7,WhereY+1,'@     @');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@');
+				  	writexy2(WhereX-1,WhereY,  '   @@@@'); 
+					writexy2(WhereX-7,WhereY+1,'   @  @');
+					writexy2(WhereX-7,WhereY+1,'   @  @');
+					writexy2(WhereX-7,WhereY+1,'@@@@  @');
+					writexy2(WhereX-7,WhereY+1,'@  @  @');
+					writexy2(WhereX-7,WhereY+1,'@     @');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				end;
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'K': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@    @@');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@ @@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@    @@');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@ @@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'L': begin
 				if(i=Length(s)) or (s[i+1]=' ')then begin
-					writexy(WhereX-1,WhereY,  '@@@@   '); 
-					writexy(WhereX-7,WhereY+1,'@  @   ');
-					writexy(WhereX-7,WhereY+1,'@  @   ');
-					writexy(WhereX-7,WhereY+1,'@  @   ');
-					writexy(WhereX-7,WhereY+1,'@  @@@@');
-					writexy(WhereX-7,WhereY+1,'@     @');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@')
+					writexy2(WhereX-1,WhereY,  '@@@@   '); 
+					writexy2(WhereX-7,WhereY+1,'@  @   ');
+					writexy2(WhereX-7,WhereY+1,'@  @   ');
+					writexy2(WhereX-7,WhereY+1,'@  @   ');
+					writexy2(WhereX-7,WhereY+1,'@  @@@@');
+					writexy2(WhereX-7,WhereY+1,'@     @');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@')
 				end else begin
-				  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-					writexy(WhereX-7,WhereY+1,'@  @@@@');
-					writexy(WhereX-7,WhereY+1,'@  @@@@');
-					writexy(WhereX-7,WhereY+1,'@  @@@@');
-					writexy(WhereX-7,WhereY+1,'@  @@@@');
-					writexy(WhereX-7,WhereY+1,'@     @');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@');
-					writexy(WhereX-7,WhereY+1,'@@@@@@@');
+				  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+					writexy2(WhereX-7,WhereY+1,'@  @@@@');
+					writexy2(WhereX-7,WhereY+1,'@  @@@@');
+					writexy2(WhereX-7,WhereY+1,'@  @@@@');
+					writexy2(WhereX-7,WhereY+1,'@  @@@@');
+					writexy2(WhereX-7,WhereY+1,'@     @');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+					writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				end;
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'M': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@ @@@@'); 
-			   	writexy(WhereX-9,WhereY+1,'@  @@@  @');
-				writexy(WhereX-9,WhereY+1,'@   @   @');
-				writexy(WhereX-9,WhereY+1,'@       @');
-				writexy(WhereX-9,WhereY+1,'@  @ @  @');
-				writexy(WhereX-9,WhereY+1,'@  @@@  @');
-				writexy(WhereX-9,WhereY+1,'@@@@@@@@@');
-				writexy(WhereX-9,WhereY+1,'@@@@ @@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@ @@@@'); 
+			   	writexy2(WhereX-9,WhereY+1,'@  @@@  @');
+				writexy2(WhereX-9,WhereY+1,'@   @   @');
+				writexy2(WhereX-9,WhereY+1,'@       @');
+				writexy2(WhereX-9,WhereY+1,'@  @ @  @');
+				writexy2(WhereX-9,WhereY+1,'@  @@@  @');
+				writexy2(WhereX-9,WhereY+1,'@@@@@@@@@');
+				writexy2(WhereX-9,WhereY+1,'@@@@ @@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'N': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@@'); 
-				writexy(WhereX-8,WhereY+1,'@  @@  @');
-				writexy(WhereX-8,WhereY+1,'@   @  @');
-				writexy(WhereX-8,WhereY+1,'@      @');
-				writexy(WhereX-8,WhereY+1,'@  @   @');
-				writexy(WhereX-8,WhereY+1,'@  @@  @');
-				writexy(WhereX-8,WhereY+1,'@@@@@@@@');
-				writexy(WhereX-8,WhereY+1,'@@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@@'); 
+				writexy2(WhereX-8,WhereY+1,'@  @@  @');
+				writexy2(WhereX-8,WhereY+1,'@   @  @');
+				writexy2(WhereX-8,WhereY+1,'@      @');
+				writexy2(WhereX-8,WhereY+1,'@  @   @');
+				writexy2(WhereX-8,WhereY+1,'@  @@  @');
+				writexy2(WhereX-8,WhereY+1,'@@@@@@@@');
+				writexy2(WhereX-8,WhereY+1,'@@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'O': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'P': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@   ');
-				writexy(WhereX-7,WhereY+1,'@@@@   ');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@   ');
+				writexy2(WhereX-7,WhereY+1,'@@@@   ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'Q': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@ '); 
-			   	writexy(WhereX-8,WhereY+1,'@     @ ');
-				writexy(WhereX-8,WhereY+1,'@  @  @ ');
-				writexy(WhereX-8,WhereY+1,'@  @  @ ');
-				writexy(WhereX-8,WhereY+1,'@  @  @@');
-				writexy(WhereX-8,WhereY+1,'@      @');
-				writexy(WhereX-8,WhereY+1,'@@@@@@@@');
-				writexy(WhereX-8,WhereY+1,'@@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@ '); 
+			   	writexy2(WhereX-8,WhereY+1,'@     @ ');
+				writexy2(WhereX-8,WhereY+1,'@  @  @ ');
+				writexy2(WhereX-8,WhereY+1,'@  @  @ ');
+				writexy2(WhereX-8,WhereY+1,'@  @  @@');
+				writexy2(WhereX-8,WhereY+1,'@      @');
+				writexy2(WhereX-8,WhereY+1,'@@@@@@@@');
+				writexy2(WhereX-8,WhereY+1,'@@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'R': begin
-				writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@    @@');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@ @@@');
+				writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@    @@');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@ @@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'S': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'T': begin
-			  	writexy(WhereX,WhereY,  '@@@@@@@@'); 
-			   	writexy(WhereX-8,WhereY+1,'@      @');
-				writexy(WhereX-8,WhereY+1,'@@@  @@@');
-				writexy(WhereX-8,WhereY+1,'@@@  @@@');
-				writexy(WhereX-8,WhereY+1,'  @  @  ');
-				writexy(WhereX-8,WhereY+1,'  @  @  ');
-				writexy(WhereX-8,WhereY+1,'  @@@@  ');
-				writexy(WhereX-8,WhereY+1,'  @@@@  ');
+			  	writexy2(WhereX,WhereY,  '@@@@@@@@'); 
+			   	writexy2(WhereX-8,WhereY+1,'@      @');
+				writexy2(WhereX-8,WhereY+1,'@@@  @@@');
+				writexy2(WhereX-8,WhereY+1,'@@@  @@@');
+				writexy2(WhereX-8,WhereY+1,'  @  @  ');
+				writexy2(WhereX-8,WhereY+1,'  @  @  ');
+				writexy2(WhereX-8,WhereY+1,'  @@@@  ');
+				writexy2(WhereX-8,WhereY+1,'  @@@@  ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'U': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'V': begin
-			  	writexy(WhereX,WhereY,    '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@ @@@');
-				writexy(WhereX-7,WhereY+1,' @@@@@ ');
-				writexy(WhereX-7,WhereY+1,'  @@@  ');
+			  	writexy2(WhereX,WhereY,    '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@ @@@');
+				writexy2(WhereX-7,WhereY+1,' @@@@@ ');
+				writexy2(WhereX-7,WhereY+1,'  @@@  ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'W': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@ @@@@'); 
-			   	writexy(WhereX-9,WhereY+1,'@  @@@  @');
-				writexy(WhereX-9,WhereY+1,'@  @ @  @');
-				writexy(WhereX-9,WhereY+1,'@       @');
-				writexy(WhereX-9,WhereY+1,'@   @   @');
-				writexy(WhereX-9,WhereY+1,'@  @@@  @');
-				writexy(WhereX-9,WhereY+1,'@@@@@@@@@');
-				writexy(WhereX-9,WhereY+1,'@@@@ @@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@ @@@@'); 
+			   	writexy2(WhereX-9,WhereY+1,'@  @@@  @');
+				writexy2(WhereX-9,WhereY+1,'@  @ @  @');
+				writexy2(WhereX-9,WhereY+1,'@       @');
+				writexy2(WhereX-9,WhereY+1,'@   @   @');
+				writexy2(WhereX-9,WhereY+1,'@  @@@  @');
+				writexy2(WhereX-9,WhereY+1,'@@@@@@@@@');
+				writexy2(WhereX-9,WhereY+1,'@@@@ @@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'X': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@@   @@');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@  @  @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@ @@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@@   @@');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@  @  @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@ @@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'Y': begin
-			  	writexy(WhereX,WhereY,  '@@@@@@@@'); 
-			   	writexy(WhereX-8,WhereY+1,'@  @@  @');
-				writexy(WhereX-8,WhereY+1,'@  @@  @');
-				writexy(WhereX-8,WhereY+1,'@@    @@');
-				writexy(WhereX-8,WhereY+1,'@@@  @@@');
-				writexy(WhereX-8,WhereY+1,' @@  @@ ');
-				writexy(WhereX-8,WhereY+1,'  @  @  ');
-				writexy(WhereX-8,WhereY+1,'  @@@@  ');
+			  	writexy2(WhereX,WhereY,  '@@@@@@@@'); 
+			   	writexy2(WhereX-8,WhereY+1,'@  @@  @');
+				writexy2(WhereX-8,WhereY+1,'@  @@  @');
+				writexy2(WhereX-8,WhereY+1,'@@    @@');
+				writexy2(WhereX-8,WhereY+1,'@@@  @@@');
+				writexy2(WhereX-8,WhereY+1,' @@  @@ ');
+				writexy2(WhereX-8,WhereY+1,'  @  @  ');
+				writexy2(WhereX-8,WhereY+1,'  @@@@  ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'Z': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@@@@'); 
-			   	writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@  @');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@  @@@@');
-				writexy(WhereX-7,WhereY+1,'@     @');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
-				writexy(WhereX-7,WhereY+1,'@@@@@@@');
+			  	writexy2(WhereX-1,WhereY,  '@@@@@@@'); 
+			   	writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@  @');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@  @@@@');
+				writexy2(WhereX-7,WhereY+1,'@     @');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
+				writexy2(WhereX-7,WhereY+1,'@@@@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			'!': begin
-			  	writexy(WhereX-1,WhereY,  '@@@@'); 
-			   	writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@@@@');
-				writexy(WhereX-4,WhereY+1,'@  @');
-				writexy(WhereX-4,WhereY+1,'@@@@');
-				writexy(WhereX-4,WhereY+1,'@@@@');
+			  	writexy2(WhereX  ,WhereY,  '@@@@'); 
+			   	writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@@@@');
+				writexy2(WhereX-4,WhereY+1,'@  @');
+				writexy2(WhereX-4,WhereY+1,'@@@@');
+				writexy2(WhereX-4,WhereY+1,'@@@@');
 				gotoxy(WhereX,WhereY-7);
 			end;
 			' ': begin
-			  	writexy(WhereX,WhereY,    '    '); 
-			   	writexy(WhereX-4,WhereY+1,'    ');
-				writexy(WhereX-4,WhereY+1,'    ');
-				writexy(WhereX-4,WhereY+1,'    ');
-				writexy(WhereX-4,WhereY+1,'    ');
-				writexy(WhereX-4,WhereY+1,'    ');
-				writexy(WhereX-4,WhereY+1,'    ');
-				writexy(WhereX-4,WhereY+1,'    ');
+			  	writexy2(WhereX,WhereY,    '    '); 
+			   	writexy2(WhereX-4,WhereY+1,'    ');
+				writexy2(WhereX-4,WhereY+1,'    ');
+				writexy2(WhereX-4,WhereY+1,'    ');
+				writexy2(WhereX-4,WhereY+1,'    ');
+				writexy2(WhereX-4,WhereY+1,'    ');
+				writexy2(WhereX-4,WhereY+1,'    ');
+				writexy2(WhereX-4,WhereY+1,'    ');
 				gotoxy(WhereX,WhereY-7);
 			end;
 		end;
@@ -511,7 +551,7 @@ begin
         for x:=fx to tx do begin
             l:=l+t[x][y];
         end;
-        writexy(fx,y,l);
+        writexy2(fx,y,l);
     end;
 end;
 
@@ -843,7 +883,7 @@ var
 	c: char;
 begin
 	ClrScr;
-	writeTitulo(3,2,'VELOCIDAD!');
+	writeTitulo(7,2,'VELOCIDAD!');
 	writexy(posCX,posCY+10,'1. Rapida');
 	writexy(posCX,posCY+12,'2. Normal');
 	writexy(posCX,posCY+14,'3. Lenta');
@@ -862,7 +902,7 @@ var
 	c: char;
 begin
 	ClrScr;
-	writeTitulo(3,2,'DIFICULTAD!');
+	writeTitulo(7,2,'DIFICULTAD!');
 	writexy(posCX,posCY+10,'1. Facil');
 	writexy(posCX,posCY+12,'2. Normal');
 	c:=readKey();
