@@ -889,6 +889,7 @@ begin
 		writexyCent(posCX,posCY,pj.nombre+': '+IntToStr(pj.puntos));
 		posCY:=posCY+1;
 	end;
+	close(a);
 	writexyCent(posCX,posCY+1,'Presiona cualquier tecla para volver al menu');
 	readkey;
 end;
